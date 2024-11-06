@@ -10,7 +10,7 @@ public class ClawExtraMovement : MonoBehaviour
     public float moveSpeed = 1;
 
 
-    public void LateUpdate()
+    public void Update()
     {
         if(Vector2.Distance(transform.position, parent.position) > 2)
         {

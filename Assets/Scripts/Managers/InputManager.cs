@@ -33,7 +33,7 @@ public class InputManager : MonoBehaviour
         {
             actionEvent.Raise(true);
         }
-        if (context.started)
+        if (context.canceled)
         {
             actionEvent.Raise(false);
         }
