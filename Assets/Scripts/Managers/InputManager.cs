@@ -9,21 +9,30 @@ public class InputManager : MonoBehaviour
     public Vector2Event movementEvent;
     public BoolEvent actionEvent;
 
+    public Vector2Event joystickInitialEvent;
+    public Vector2Event joystickCurrentEvent;
+
     private Vector2 initialTouchPosition;
     private Vector2 currentTouchPosition;
+
+    private Vector2 hwh;
+
     private bool isTouching;
 
     private void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        hwh = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
     }
 
     private void Update()
     {
         if (isTouching)
         {
-            movementEvent.Raise(Vector2.ClampMagnitude(currentTouchPosition - initialTouchPosition, Screen.width*0.4f)*Time.deltaTime * 5);
+            movementEvent.Raise(Vector2.ClampMagnitude(currentTouchPosition - initialTouchPosition, Screen.width*0.15f)*Time.deltaTime * 7);
+            joystickCurrentEvent.Raise(Vector2.ClampMagnitude(currentTouchPosition - initialTouchPosition, Screen.width * 0.4f));
         }
     }
 
@@ -51,6 +60,7 @@ public class InputManager : MonoBehaviour
             actionEvent.Raise(true);
             isTouching = true;
             initialTouchPosition = currentTouchPosition;
+            joystickInitialEvent.Raise(initialTouchPosition - hwh);
         }
         if (context.canceled)
         {
