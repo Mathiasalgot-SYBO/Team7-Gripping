@@ -14,6 +14,10 @@ public class BoxManager : MonoBehaviour
     public Vector2 boxToFrom;
     public Vector2 boxYZLevel;
     public float timeScale = 0.1f;
+    public float speedIncrease = 0.0004f;
+
+    [Range(0f, 1f)]
+    public float boxSpawnPercentage = 0.7f;
 
     public BonusType[] bonusTypes;
     public VoidEvent spawnObjects;
