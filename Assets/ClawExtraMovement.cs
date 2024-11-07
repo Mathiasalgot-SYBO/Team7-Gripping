@@ -14,7 +14,8 @@ public class ClawExtraMovement : MonoBehaviour
     {
         if(Vector2.Distance(transform.position, parent.position) > 2)
         {
-            transform.position = Vector3.Lerp(transform.position ,parent.position + (transform.position - parent.position).normalized * 2, Time.deltaTime * 24);
+            //transform.position = Vector3.Lerp(transform.position ,parent.position + (transform.position - parent.position).normalized * 2, Time.deltaTime * 24);
+            transform.position = parent.position + (transform.position - parent.position).normalized * 2;
         }
 
 

@@ -2415,6 +2415,8 @@ MonoBehaviour:
   boxToFrom: {x: -15, y: 15}
   boxYZLevel: {x: -10.9, y: -10.1}
   timeScale: 0.06
+  speedIncrease: 0.0004
+  boxSpawnPercentage: 0.7
   bonusTypes:
   - typeName: chicken
     typeSprite: {fileID: 21300000, guid: 4a60c75ae4581b64d90fe2e3075fe682, type: 3}
@@ -6208,7 +6210,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 50
-  m_LinearDrag: 0.8
+  m_LinearDrag: 1.2
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}

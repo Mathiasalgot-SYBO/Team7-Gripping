@@ -29,14 +29,14 @@ public class BoxManager : MonoBehaviour
 
     private void Update()
     {
-        timeScale += Time.deltaTime * 0.0004f;
+        timeScale += Time.deltaTime * speedIncrease;
 
         for (int i = 0; i < boxes.Count; i++)
         {
             boxes[i].time += Time.deltaTime * timeScale;
             boxes[i].t.position = new Vector3(Mathf.Lerp(boxToFrom.x, boxToFrom.y, speedCurve.Evaluate(boxes[i].time)), boxYZLevel.x, boxYZLevel.y);
 
-            if (boxes[i].time > 0.7f && !boxes[i].spawnNewBox)
+            if (boxes[i].time > boxSpawnPercentage && !boxes[i].spawnNewBox)
             {
                 SpawnBox();
                 spawnObjects.Raise();
