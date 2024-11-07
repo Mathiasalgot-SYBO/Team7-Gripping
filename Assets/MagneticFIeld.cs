@@ -11,6 +11,7 @@ public class MagneticFIeld : MonoBehaviour
 
     private int dropObjectsLayer;
 
+    public float dropZOffset = 1;
     public bool dropHeightReached = false;
 
     private void Start()
@@ -26,7 +27,8 @@ public class MagneticFIeld : MonoBehaviour
         foreach (MachineObjects rb in objectsInRange)
         {
             Vector2 direction = (transform.position - rb.transform.position);
-            rb.AddForce(direction.normalized * direction.magnitude * magnetStrenght * Time.deltaTime, ForceMode2D.Force);
+            float distance = Mathf.Clamp(Mathf.Abs(Vector2.Distance(rb.transform.position, transform.position) - 3),0.5f,3);
+            rb.AddForce(direction.normalized * distance * magnetStrenght * Time.deltaTime, ForceMode2D.Force);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -54,6 +56,8 @@ public class MagneticFIeld : MonoBehaviour
         
     }
 
+
+
     public void EnableMagnet(bool enable)
     {
         attractObjects = enable;
@@ -73,7 +77,7 @@ public class MagneticFIeld : MonoBehaviour
         if (transform.position.y > 6.5f)
         {
             gameObject.gameObject.layer = dropObjectsLayer;
-            gameObject.transform.position -= Vector3.forward;
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y,-dropZOffset);
         }
     }
 
