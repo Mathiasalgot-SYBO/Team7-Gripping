@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b359780bb311ac34cbf614e4c644dd74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!23 &92144388
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -374,6 +375,8 @@ MonoBehaviour:
   moveSpeed: 4
   xLimits: {x: -9, y: 9}
   yLimits: {x: -2, y: 16}
+  safeDropHeight: 12
+  dropHeightEvent: {fileID: 11400000, guid: 6d3faf00754bf194ca7d314988f39821, type: 2}
 --- !u!4 &142305178
 Transform:
   m_ObjectHideFlags: 0
@@ -460,6 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b359780bb311ac34cbf614e4c644dd74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!23 &237069857
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1289,6 +1293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b359780bb311ac34cbf614e4c644dd74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!23 &681796343
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1498,6 +1503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b359780bb311ac34cbf614e4c644dd74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!23 &979936113
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1658,6 +1664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b359780bb311ac34cbf614e4c644dd74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!23 &1073488668
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1818,6 +1825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b359780bb311ac34cbf614e4c644dd74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!23 &1211458451
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1922,7 +1930,7 @@ GameObject:
   - component: {fileID: 1249134633}
   - component: {fileID: 1249134632}
   - component: {fileID: 1249134631}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2618,6 +2626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b359780bb311ac34cbf614e4c644dd74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!23 &1577400187
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2722,7 +2731,7 @@ GameObject:
   - component: {fileID: 1604467981}
   - component: {fileID: 1604467980}
   - component: {fileID: 1604467979}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3078,7 +3087,7 @@ GameObject:
   - component: {fileID: 1667578084}
   - component: {fileID: 1667578083}
   - component: {fileID: 1667578082}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3286,6 +3295,8 @@ MonoBehaviour:
   moveSpeed: 2
   xLimits: {x: 0, y: 0}
   yLimits: {x: 0, y: 0}
+  safeDropHeight: 0
+  dropHeightEvent: {fileID: 0}
 --- !u!4 &1838180895
 Transform:
   m_ObjectHideFlags: 0
@@ -3924,6 +3935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b359780bb311ac34cbf614e4c644dd74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!23 &2005200395
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4199,8 +4211,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2056740193}
   - component: {fileID: 2056740194}
+  - component: {fileID: 2056740195}
+  - component: {fileID: 2056740196}
+  - component: {fileID: 2056740197}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Magnetic Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4215,7 +4230,7 @@ Transform:
   m_GameObject: {fileID: 2056740192}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.864, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4250,10 +4265,10 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.73}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4271,6 +4286,78 @@ PolygonCollider2D:
       - {x: 0.97472155, y: -0.71919227}
       - {x: 1.5798279, y: -2.123154}
   m_UseDelaunayMesh: 0
+--- !u!114 &2056740195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056740192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dfefe5330b75d74bb63ac29b6a7b0f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnetStrenght: 1000
+  objectsInRange: []
+  attractObjects: 0
+  dropHeightReached: 0
+--- !u!114 &2056740196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056740192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c26eb267b07ea47938568250f77855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 631b43202626a454da0e81a28c02bd89, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2056740195}
+        m_TargetAssemblyTypeName: MagneticFIeld, Assembly-CSharp
+        m_MethodName: EnableMagnet
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2056740197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056740192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c26eb267b07ea47938568250f77855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 6d3faf00754bf194ca7d314988f39821, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2056740195}
+        m_TargetAssemblyTypeName: MagneticFIeld, Assembly-CSharp
+        m_MethodName: UpdateDropHeight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2075269840
 GameObject:
   m_ObjectHideFlags: 0
@@ -4339,6 +4426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b359780bb311ac34cbf614e4c644dd74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!23 &2075269843
 MeshRenderer:
   m_ObjectHideFlags: 0
