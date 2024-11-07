@@ -14,6 +14,8 @@ public class BoxManager : MonoBehaviour
     public Vector2 boxYZLevel;
     public float timeScale = 0.1f;
 
+    public BonusType[] bonusTypes;
+
     private void Start()
     {
         SpawnBox();
@@ -21,6 +23,8 @@ public class BoxManager : MonoBehaviour
 
     private void Update()
     {
+        timeScale += Time.deltaTime * 0.0004f;
+
         for (int i = 0; i < boxes.Count; i++)
         {
             boxes[i].time += Time.deltaTime * timeScale;
@@ -43,6 +47,8 @@ public class BoxManager : MonoBehaviour
     public void SpawnBox()
     {
         Transform tempTransform = Instantiate(boxPrefab, new Vector3(boxToFrom.x, boxYZLevel.x, boxYZLevel.y), Quaternion.identity);
+        BonusType bonusType = bonusTypes[Random.Range(0, bonusTypes.Length)];
+        tempTransform.GetComponentInChildren<BoxScript>().InitBox(bonusType.typeName, bonusType.typeSprite);
         boxes.Add(new Box(tempTransform));
 
     }
@@ -62,4 +68,10 @@ public class Box
         this.time = 0;
         this.spawnNewBox = false;
     }
+}
+[System.Serializable]
+public class BonusType
+{
+    public string typeName;
+    public Sprite typeSprite;
 }

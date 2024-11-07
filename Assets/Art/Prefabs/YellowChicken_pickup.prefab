@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b359780bb311ac34cbf614e4c644dd74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: chicken
   rb: {fileID: 0}
 --- !u!50 &6087464643470097335
 Rigidbody2D:

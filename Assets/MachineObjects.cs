@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MachineObjects : MonoBehaviour
 {
+    public string type;
     public Rigidbody2D rb;
 
     private void Awake()

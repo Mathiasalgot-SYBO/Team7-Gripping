@@ -2,17 +2,36 @@ using MA.Events;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BoxScript : MonoBehaviour
 {
-    public enum ObjectTypes { Shark, Pig, Chicken}
-    public ObjectTypes acceptedType;
+    public string bonusType;
+    public Image typeImage;
+
+    public IntEvent scoreEvent;
 
     public VoidEvent objectCountEvent;
+
+    public void InitBox(string bonus, Sprite sprite)
+    {
+        bonusType = bonus;
+        typeImage.sprite = sprite;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Magnetic")
         {
+            if(collision.GetComponent<MachineObjects>().type == bonusType)
+            {
+                scoreEvent.Raise(500);
+            }
+            else
+            {
+                scoreEvent.Raise(100);
+            }
+
             Destroy(collision.gameObject);
             objectCountEvent.Raise();
         }
