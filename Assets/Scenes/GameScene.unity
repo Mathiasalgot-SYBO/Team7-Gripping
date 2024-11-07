@@ -2416,9 +2416,9 @@ MonoBehaviour:
     m_RotationOrder: 4
   boxToFrom: {x: -15, y: 15}
   boxYZLevel: {x: -10.9, y: -10.1}
-  timeScale: 0.06
-  speedIncrease: 0.0004
-  boxSpawnPercentage: 0.7
+  timeScale: 0.03
+  speedIncrease: 0
+  boxSpawnPercentage: 0.9
   bonusTypes:
   - typeName: chicken
     typeSprite: {fileID: 21300000, guid: 4a60c75ae4581b64d90fe2e3075fe682, type: 3}
