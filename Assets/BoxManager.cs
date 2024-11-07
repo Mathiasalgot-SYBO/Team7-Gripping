@@ -1,3 +1,4 @@
+using MA.Events;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class BoxManager : MonoBehaviour
     public float timeScale = 0.1f;
 
     public BonusType[] bonusTypes;
+    public VoidEvent spawnObjects;
 
     private void Start()
     {
@@ -33,6 +35,7 @@ public class BoxManager : MonoBehaviour
             if (boxes[i].time > 0.7f && !boxes[i].spawnNewBox)
             {
                 SpawnBox();
+                spawnObjects.Raise();
                 boxes[i].spawnNewBox = true;
             }
 
