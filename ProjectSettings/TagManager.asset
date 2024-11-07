@@ -3,17 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Magnetic
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Machine/Objects
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Packing/Object
+  - Machine/Walls
+  - Packing/Boxes
   - 
   - 
   - 
