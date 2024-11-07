@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Touch",
+                    "type": "Value",
+                    "id": "2ccdd78e-8529-4c7a-812e-34fb2df69e37",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "MainAction",
                     "type": "Button",
                     "id": "2e8faf5d-6d91-411d-95b9-938dbb50092c",
@@ -38,12 +47,12 @@
                 },
                 {
                     "name": "",
-                    "id": "4908d861-4635-48ed-bc50-8c78a8dda0f2",
-                    "path": "<Touchscreen>/primaryTouch/delta",
+                    "id": "e99d535f-3789-4af0-b262-34ad686df25a",
+                    "path": "<Touchscreen>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Movement",
+                    "groups": "Touch",
+                    "action": "Touch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

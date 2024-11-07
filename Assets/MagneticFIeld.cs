@@ -27,7 +27,7 @@ public class MagneticFIeld : MonoBehaviour
         foreach (MachineObjects rb in objectsInRange)
         {
             Vector2 direction = (transform.position - rb.transform.position);
-            float distance = Mathf.Clamp(Mathf.Abs(Vector2.Distance(rb.transform.position, transform.position) - 3),0.5f,3);
+            float distance = Mathf.Clamp(Mathf.Abs(Vector2.Distance(rb.transform.position, transform.position) - 3),1,3);
             rb.AddForce(direction.normalized * distance * magnetStrenght * Time.deltaTime, ForceMode2D.Force);
         }
     }
