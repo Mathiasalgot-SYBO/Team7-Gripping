@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clawDesiredPoint: {fileID: 453091749}
-  moveSpeed: 7
+  moveSpeed: 6
   xLimits: {x: -7, y: 7}
   yLimits: {x: 1.73, y: 18}
   safeDropHeight: 11
@@ -5127,6 +5127,7 @@ MonoBehaviour:
     type: 2}
   joystickCurrentEvent: {fileID: 11400000, guid: ffdb4366b0016c1419992e7b0b3d9d0a,
     type: 2}
+  joystickSize: 0.12
 --- !u!4 &1562777885
 Transform:
   m_ObjectHideFlags: 0
