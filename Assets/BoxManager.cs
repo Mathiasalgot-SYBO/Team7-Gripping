@@ -22,6 +22,8 @@ public class BoxManager : MonoBehaviour
     public BonusType[] bonusTypes;
     public VoidEvent spawnObjects;
 
+    private int lastBonus;
+
     private void Start()
     {
         SpawnBox();
@@ -54,10 +56,19 @@ public class BoxManager : MonoBehaviour
     public void SpawnBox()
     {
         Transform tempTransform = Instantiate(boxPrefab, new Vector3(boxToFrom.x, boxYZLevel.x, boxYZLevel.y), Quaternion.identity);
-        BonusType bonusType = bonusTypes[Random.Range(0, bonusTypes.Length)];
+        
+        int bonusInt = Random.Range(0, bonusTypes.Length);
+
+        while(bonusInt == lastBonus)
+        {
+            bonusInt = Random.Range(0, bonusTypes.Length);
+        }
+
+        lastBonus = bonusInt;
+        BonusType bonusType = bonusTypes[bonusInt];
         tempTransform.GetComponentInChildren<BoxScript>().InitBox(bonusType.typeName, bonusType.typeSprite);
         boxes.Add(new Box(tempTransform));
-
+         
     }
 
 }

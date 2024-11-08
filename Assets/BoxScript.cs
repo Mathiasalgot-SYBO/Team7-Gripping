@@ -3,12 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BoxScript : MonoBehaviour
 {
     public string bonusType;
     public Image typeImage;
 
+    public int baseScore = 0;
+    public int bonusScore = 100;
+    public float bonusScoreMul = 2;
+    private int bonusCounter;
+
+    public TMP_Text bonusCounterField;
     public IntEvent scoreEvent;
 
     public VoidEvent objectCountEvent;
@@ -27,12 +34,14 @@ public class BoxScript : MonoBehaviour
         {
             if(collision.GetComponent<MachineObjects>().type == bonusType)
             {
-                scoreEvent.Raise(500);
+                bonusCounter++;
+                bonusCounterField.text = "x" + bonusCounter.ToString();
+                scoreEvent.Raise(Mathf.RoundToInt(bonusScore * Mathf.Pow(bonusCounter,2)));
                 Destroy(Instantiate(starsParticles, collision.transform.position, Quaternion.identity), 2);
             }
             else
             {
-                scoreEvent.Raise(100);
+                scoreEvent.Raise(baseScore);
             }
 
 

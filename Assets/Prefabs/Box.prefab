@@ -292,6 +292,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bonusType: 
   typeImage: {fileID: 1340787918433694110}
+  baseScore: 0
+  bonusScore: 100
+  bonusScoreMul: 2
+  bonusCounterField: {fileID: 3296118508108582366}
   scoreEvent: {fileID: 11400000, guid: b1d4d0cb836097f479e1ca83341a32da, type: 2}
   objectCountEvent: {fileID: 11400000, guid: 305929d04e53e4442a9c38dec4a87e25, type: 2}
   starsParticles: {fileID: 1850193573381949773, guid: becf764d5ba2695458b59e305aa44adc,
@@ -563,7 +567,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: x2
+  m_text: x0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

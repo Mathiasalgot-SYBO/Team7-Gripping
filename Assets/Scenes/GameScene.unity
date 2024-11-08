@@ -2536,6 +2536,8 @@ MonoBehaviour:
     typeSprite: {fileID: 21300000, guid: e8afafa12d81c404cb8209b785f4c2cb, type: 3}
   - typeName: shark
     typeSprite: {fileID: 21300000, guid: d1b0744f5e4623a43a6f46aed784d97e, type: 3}
+  - typeName: cat
+    typeSprite: {fileID: 21300000, guid: 59ea796fdda36cf42b50110054e91944, type: 3}
   spawnObjects: {fileID: 11400000, guid: cdcfe5575f5db6e419bab030d53c67bb, type: 2}
 --- !u!4 &744343980
 Transform:
@@ -4253,6 +4255,7 @@ MonoBehaviour:
   - {fileID: 8329368146938597730, guid: 4448d27dd3e29614cb40b4601487c4fd, type: 3}
   - {fileID: 6551968583393530350, guid: 750011ba29e4944489ffd7410e40b82c, type: 3}
   - {fileID: 6087464643470097335, guid: a2ebfa121991272438136c5d452139a5, type: 3}
+  - {fileID: 8329368146938597730, guid: 079b10620cfdf684ba25f9396f4a722c, type: 3}
 --- !u!114 &1318496431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5127,6 +5130,7 @@ MonoBehaviour:
     type: 2}
   joystickCurrentEvent: {fileID: 11400000, guid: ffdb4366b0016c1419992e7b0b3d9d0a,
     type: 2}
+  joystickSize: 0.13
 --- !u!4 &1562777885
 Transform:
   m_ObjectHideFlags: 0
