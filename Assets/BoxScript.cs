@@ -13,6 +13,8 @@ public class BoxScript : MonoBehaviour
 
     public VoidEvent objectCountEvent;
 
+    public GameObject starsParticles;
+
     public void InitBox(string bonus, Sprite sprite)
     {
         bonusType = bonus;
@@ -26,12 +28,15 @@ public class BoxScript : MonoBehaviour
             if(collision.GetComponent<MachineObjects>().type == bonusType)
             {
                 scoreEvent.Raise(500);
+                Destroy(Instantiate(starsParticles, collision.transform.position, Quaternion.identity), 2);
             }
             else
             {
                 scoreEvent.Raise(100);
             }
 
+
+           
             Destroy(collision.gameObject);
             objectCountEvent.Raise();
         }
