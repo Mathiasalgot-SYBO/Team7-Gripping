@@ -21,6 +21,7 @@ public class BoxScript : MonoBehaviour
     public VoidEvent objectCountEvent;
 
     public GameObject starsParticles;
+    public ScoreDisplay scoreDisplay;
 
     public void InitBox(string bonus, Sprite sprite)
     {
@@ -36,8 +37,10 @@ public class BoxScript : MonoBehaviour
             {
                 bonusCounter++;
                 bonusCounterField.text = "x" + bonusCounter.ToString();
-                scoreEvent.Raise(Mathf.RoundToInt(bonusScore * Mathf.Pow(bonusCounter,2)));
+                int score = Mathf.RoundToInt(bonusScore * bonusCounter * 2);
+                scoreEvent.Raise(score);
                 Destroy(Instantiate(starsParticles, collision.transform.position, Quaternion.identity), 2);
+                Instantiate(scoreDisplay, collision.transform.position, Quaternion.identity).Init("+" + score.ToString());
             }
             else
             {
