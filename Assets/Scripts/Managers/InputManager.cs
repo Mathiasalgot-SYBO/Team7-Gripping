@@ -16,6 +16,7 @@ public class InputManager : MonoBehaviour
     private Vector2 currentTouchPosition;
 
     private Vector2 hwh;
+    public float joystickSize = 0.13f;
 
     private bool isTouching;
 
@@ -31,8 +32,8 @@ public class InputManager : MonoBehaviour
     {
         if (isTouching)
         {
-            movementEvent.Raise(Vector2.ClampMagnitude(currentTouchPosition - initialTouchPosition, Screen.width*0.15f)*Time.deltaTime * 7);
-            joystickCurrentEvent.Raise(Vector2.ClampMagnitude(currentTouchPosition - initialTouchPosition, Screen.width * 0.4f));
+            movementEvent.Raise(Vector2.ClampMagnitude(currentTouchPosition - initialTouchPosition, Screen.width*joystickSize)*Time.deltaTime * 7);
+            joystickCurrentEvent.Raise(Vector2.ClampMagnitude(currentTouchPosition - initialTouchPosition, Screen.width * joystickSize));
         }
     }
 
