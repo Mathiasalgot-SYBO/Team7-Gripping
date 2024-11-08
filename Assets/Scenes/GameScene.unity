@@ -2523,7 +2523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e8b81c2117162147843a842f5b81793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 90
+  timer: 120
   timerField: {fileID: 1086937721}
   pointsField: {fileID: 355172735}
   currentPoints: 0
