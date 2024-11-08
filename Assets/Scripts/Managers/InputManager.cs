@@ -20,6 +20,8 @@ public class InputManager : MonoBehaviour
 
     private bool isTouching;
 
+    private bool gameStopped;
+
     private void Start()
     {
         Cursor.visible = false;
@@ -28,8 +30,15 @@ public class InputManager : MonoBehaviour
         hwh = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
     }
 
+    public void EndGame()
+    {
+        gameStopped = true;
+    }
     private void Update()
     {
+        if (gameStopped)
+            return;
+
         if (isTouching)
         {
             movementEvent.Raise(Vector2.ClampMagnitude(currentTouchPosition - initialTouchPosition, Screen.width*joystickSize)*Time.deltaTime * 7);
@@ -39,6 +48,9 @@ public class InputManager : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (gameStopped)
+            return;
+
         if (context.started)
         {
             movementEvent.Raise(context.ReadValue<Vector2>());
@@ -56,6 +68,9 @@ public class InputManager : MonoBehaviour
 
     public void OnAction(InputAction.CallbackContext context)
     {
+        if (gameStopped)
+            return;
+
         if (context.started)
         {
             actionEvent.Raise(true);
@@ -72,6 +87,9 @@ public class InputManager : MonoBehaviour
 
     public void OnTouch(InputAction.CallbackContext context)
     {
+        if (gameStopped)
+            return;
+
         if (context.started)
         {
             
