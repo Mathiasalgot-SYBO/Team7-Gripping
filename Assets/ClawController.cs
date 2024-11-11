@@ -7,6 +7,7 @@ public class ClawController : MonoBehaviour
 {
     public Transform clawDesiredPoint;
     public float moveSpeed = 2;
+    public float downwardSpeedMultiplier;
     public Vector2 xLimits,yLimits;
     public float safeDropHeight;
     private bool dropHeightReached;
@@ -14,7 +15,10 @@ public class ClawController : MonoBehaviour
     public BoolEvent dropHeightEvent;
     public void MoveMagnet(Vector2 movement)
     {
-        clawDesiredPoint.position += ((Vector3)movement/1024f) * moveSpeed;
+        Vector3 frameMovement = ((Vector3)movement / 1024f) * moveSpeed;
+        float downwardDot = Mathf.Clamp01(Vector2.Dot(movement, Vector2.down))*downwardSpeedMultiplier + 1;
+
+        clawDesiredPoint.position += frameMovement * downwardDot ;
         clawDesiredPoint.position = new Vector3(Mathf.Clamp(clawDesiredPoint.position.x, xLimits.x, xLimits.y),
             Mathf.Clamp(clawDesiredPoint.position.y, yLimits.x, yLimits.y), 0);
 

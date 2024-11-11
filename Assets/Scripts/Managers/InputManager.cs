@@ -98,6 +98,12 @@ public class InputManager : MonoBehaviour
         if (context.performed)
         {
             currentTouchPosition = context.ReadValue<Vector2>();
+
+            if(Vector2.Distance(currentTouchPosition,initialTouchPosition) > Screen.width * joystickSize)
+            {
+                initialTouchPosition = currentTouchPosition + (initialTouchPosition- currentTouchPosition).normalized * (Screen.width * joystickSize);
+                joystickInitialEvent.Raise(initialTouchPosition - hwh);
+            }
         }
         if (context.canceled)
         {

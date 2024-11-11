@@ -36,11 +36,16 @@ public class BoxScript : MonoBehaviour
             if(collision.GetComponent<MachineObjects>().type == bonusType)
             {
                 bonusCounter++;
-                bonusCounterField.text = "x" + bonusCounter.ToString();
-                int score = Mathf.RoundToInt(bonusScore * bonusCounter * 2);
+                bonusCounterField.text = bonusCounter.ToString();
+                int score = Mathf.RoundToInt(bonusScore * bonusCounter);
+                if (collision.GetComponent<MachineObjects>().gold)
+                {
+                    bonusCounter++;
+                    score *= 2;
+                }
                 scoreEvent.Raise(score);
                 Destroy(Instantiate(starsParticles, collision.transform.position, Quaternion.identity), 2);
-                Instantiate(scoreDisplay, collision.transform.position, Quaternion.identity).Init("+" + score.ToString());
+                Instantiate(scoreDisplay, collision.transform.position, Quaternion.identity).Init(score);
             }
             else
             {

@@ -9,7 +9,7 @@ public class ObjectManager : MonoBehaviour
     public int DesiredObjectCount = 25;
 
     public ObjectSpawner[] spawners;
-    public Rigidbody2D[] prefabs;
+    public MachineObjects[] prefabs;
 
 
     private void Awake()
@@ -28,7 +28,10 @@ public class ObjectManager : MonoBehaviour
         {
             int spawner = Random.Range(0, spawners.Length);
             int prefab = Random.Range(0, prefabs.Length);
-            spawners[spawner].SpawnObject(prefabs[prefab]);
+
+            int r = Random.Range(0, 15);
+
+            spawners[spawner].SpawnObject(prefabs[prefab], r == 0);
             currentObjectCount++;
 
             yield return new WaitForSeconds(0.3f);
